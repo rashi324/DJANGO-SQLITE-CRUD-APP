@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Employee</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .table-container {
+            background-color: #fff0f5;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            width: 100%;
+            max-width: 1000px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d63384;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px 16px;
+            border: 1px solid #ffc1d3;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ffb6c1;
+            color: #fff;
+        }
+
+        td {
+            background-color: #fff;
+        }
+
+        img {
+            border-radius: 6px;
+        }
+
+        a {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <h1>Employee List</h1>
+
+        <table>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Designation</th>
+                <th>Salary</th>
+                <th>Image</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </tr>
+
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.empid }}</td>
+                <td>{{ employee.ename }}</td>
+                <td>{{ employee.desg }}</td>
+                <td>{{ employee.salary }}</td>
+                <td>
+                    {% if employee.image %}
+                        <img src="{{ employee.image.url }}" height="50" width="50" alt="Employee Image">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td><a href="{% url 'deleteemployee' employee.empid %}">Delete</a></td>
+                <td><a href="{% url 'editemployee' employee.empid %}">Edit</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

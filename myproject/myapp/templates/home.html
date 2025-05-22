@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6f0;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .home-container {
+            background-color: #fff0f5;
+            padding: 50px 60px;
+            border-radius: 18px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            margin-bottom: 35px;
+            color: #d63384;
+            font-size: 28px;
+        }
+
+        a {
+            display: block;
+            margin: 12px 0;
+            padding: 12px;
+            background-color: #ff69b4;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-size: 16px;
+        }
+
+        a:hover {
+            background-color: #e055a1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="home-container">
+        <h1>Welcome to the Home Page</h1>
+        <a href="{% url 'addemployee' %}">Add Employee</a>
+        <a href="{% url 'viewemployee' %}">View Employee</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+</body>
+</html>
